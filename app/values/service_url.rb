@@ -5,14 +5,14 @@ class ServiceUrl
 
   class << self
     def from_url(url)
-      self.new(url)
+      self.new url
     end
   end
 
   # url : http://api.xxxx.com/v1/xxx
   def initialize(url)
     @url = url
-    uri = URI(url)
+    uri = URI url
     @service = uri.merge('/').to_s
     @version = uri.path.split('/')[1]
   end
