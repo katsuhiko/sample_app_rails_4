@@ -31,5 +31,10 @@ module SampleAppRails4
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # schema ファイルを sql 形式に変更する。
+    config.active_record.schema_format = :sql
+    # migration の管理テーブル名を変更する。
+    config.active_record.schema_migrations_table_name = 'sample_app_schema_migrations'
   end
 end

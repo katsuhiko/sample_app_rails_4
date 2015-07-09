@@ -42,6 +42,10 @@ pickle-email-*.html
 # Ignore application configuration
 /config/application.yml
 
+# DB structure files
+/db/structure.sql
+/db/schema.rb
+
 # Vagrant
 /.vagrant/
 

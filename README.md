@@ -1,4 +1,6 @@
-# Template for Ruby on Rails App Developmettem by Ansible
+# Sample app Rails 4
+
+http://railstutorial.jp/book/ruby-on-rails-tutorial?version=4.0#cha-static-pages
 
 ## Requirements
 
@@ -18,9 +20,12 @@ Building the virtual machine:
     host $ cd template-rails-ansible
     host $ vagrant up
 
-## How To New Rails Project
+## How to run RSpec
 
-* https://github.com/RailsApps/rails-composer
+    guest $ bundle install
+    guest $ bundle exec rake db:create
+    guest $ bundle exec rake db:migrate
+    quest $ bundle exec rspec
 
 ## How To New Rails Plugin
 
