@@ -23,6 +23,7 @@ Building the virtual machine:
 ## How to run RSpec
 
     guest $ bundle install
+    guest $ bundle exec rake rails:update:bin
     guest $ bundle exec rake db:create
     guest $ bundle exec rake db:migrate
     quest $ bundle exec rspec
