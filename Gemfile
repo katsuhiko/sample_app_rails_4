@@ -59,4 +59,7 @@ end
 group :test do
   # 日時のテストで利用する。
   gem 'timecop'
+
+  # feature spec で利用する。
+  gem 'capybara'
 end
