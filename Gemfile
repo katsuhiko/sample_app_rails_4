@@ -52,6 +52,7 @@ group :development, :test do
   gem 'ffaker'
 
   gem 'simplecov', :require => false
+  # Jenkins の Ruby metrics plugin で利用する。
   gem 'simplecov-rcov', :require => false
 end
 
