@@ -27,6 +27,10 @@ Building the virtual machine:
     guest $ bundle exec rake db:create
     guest $ bundle exec rake db:migrate
     quest $ bundle exec rspec
+    
+    guest $ bundle exec spring rspec
+    
+    quest $ bundle exec guard -p -l 10
 
 ## How To New Rails Plugin
 
