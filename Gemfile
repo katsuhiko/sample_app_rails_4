@@ -46,11 +46,13 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.0'
-  gem 'simplecov', :require => false
   gem 'spring-commands-rspec'
-  gem 'factory_girl_rails'
 
+  gem 'factory_girl_rails'
   gem 'ffaker'
+
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov', :require => false
 end
 
 group :test do
