@@ -46,14 +46,20 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.0'
-  gem 'simplecov', :require => false
   gem 'spring-commands-rspec'
-  gem 'factory_girl_rails'
 
+  gem 'factory_girl_rails'
   gem 'ffaker'
+
+  gem 'simplecov', :require => false
+  # Jenkins の Ruby metrics plugin で利用する。
+  gem 'simplecov-rcov', :require => false
 end
 
 group :test do
   # 日時のテストで利用する。
   gem 'timecop'
+
+  # feature spec で利用する。
+  gem 'capybara'
 end
