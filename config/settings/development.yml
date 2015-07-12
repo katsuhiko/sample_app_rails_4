@@ -2,8 +2,9 @@ secret:
   secret_key_base: 3423f4655d612ed2c7fb2e87b5c89895aa86457d15f8719dd06a8b1f15fb137b512483f7a080f7febf34ff7b34a10141d48baa6221e23458f4f5d438dade699c
 
 database:
+  pool: 2
   host: localhost
   port: 3306
   username: root
   password:
-  pool: 2
+  database: sample_app_rails_4_development
