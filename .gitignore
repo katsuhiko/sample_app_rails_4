@@ -78,4 +78,10 @@ pickle-email-*.html
 .env
 .powenv
 
+# rails config
+config/settings.local.yml
+config/settings/*.local.yml
+config/settings/production.yml
+config/environments/*.local.yml
+
 !.keep
