@@ -1,5 +1,5 @@
 ---
-- name: Install mysql
+- name: Install libmysqld-dev
   apt: name={{ item }} state=latest
   with_items:
     - libmysqld-dev

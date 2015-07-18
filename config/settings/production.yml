@@ -1,0 +1,11 @@
+secret:
+  secret_key_base: "rake secret"
+
+databases:
+  pool: 5
+  host: endpoint
+  port: 3306
+  username: username
+  password: password
+  production:
+    database: sample_app_rails_4_production

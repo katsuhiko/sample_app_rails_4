@@ -1,13 +1,15 @@
-secret:
-  secret_key_base: "rake secret"
+secrets:
+  secret_key_base: 47f6da7af1231cdee914bdbe3944d0b3dd8c3a56756f265d5babd339665569e85c19943dcebf5a132182a43f912183874a649840bdf3c36be4be568f83d7938f
 
-database:
+databases:
   pool: 2
   host: localhost
   port: 3306
   username: root
   password:
-  database:
-    development: sample_app_rails_4_development
-    test: sample_app_rails_4_test
-    production: sample_app_rails_4_production
+  development:
+    database: sample_app_rails_4_development
+  test:
+    database: sample_app_rails_4_test
+  production:
+    database: sample_app_rails_4_production
