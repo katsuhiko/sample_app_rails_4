@@ -9,3 +9,7 @@ databases:
   password: password
   production:
     database: sample_app_rails_4_production
+
+unicorn:
+  worker_process: 4
+  timeout: 60
