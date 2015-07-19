@@ -16,7 +16,7 @@ app_path = File.dirname(File.dirname(Dir.pwd))
 # Use at least one worker per core if you're on a dedicated server,
 # more will usually help for _short_ waits on databases/caches.
 #worker_processes 4
-worker_processes ENV['UNICORN_WORKER_PROCESSES'] || 2
+worker_processes ENV['WORKER_PROCESSES'] || 2
 
 # Since Unicorn is never exposed to outside clients, it does not need to
 # run on the standard HTTP port (80), there is no reason to start Unicorn

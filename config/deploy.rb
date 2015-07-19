@@ -59,6 +59,7 @@ set :rails_env, 'production'
 # set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, "config/unicorn.rb"
+set :unicorn_options, ENV['UNICORN_OPTIONS'] || ''
 set :unicorn_rack_env, 'deployment' # "development", "deployment", or "none"
 
 namespace :deploy do
