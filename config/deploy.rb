@@ -1,10 +1,13 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-app_name = 'sample_app_rails_4'
+set :application, ENV['APPLICATION'] || 'sample_app_rails_4'
+set :repo_url, 'https://github.com/katsuhiko/sample_app_rails_4.git'
 
-set :application, app_name
-set :repo_url, "https://github.com/katsuhiko/sample_app_rails_4.git"
+# 独自の設定項目
+set :aws_region, ENV['AWS_REGION'] || 'ap-northeast-1'
+set :ssh_keys, ENV['SSH_KEYS'] || '~/.ssh/amazon.pem'
+set :tag_role, ENV['TAG_ROLE'] || 'rails'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -12,7 +15,7 @@ set :branch, ENV['BRANCH'] || 'master'
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, '/var/www/my_app_name'
-set :deploy_to, "/var/apps/#{app_name}"
+set :deploy_to, "/var/apps/#{fetch(:application)}"
 
 # Default value for :scm is :git
 # set :scm, :git

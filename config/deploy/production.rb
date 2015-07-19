@@ -1,17 +1,14 @@
 require 'aws-sdk-core'
 
-region = ENV['AWS_REGION'] || 'ap-northeast-1'
-ssh_keys = ENV['AWS_SSH_KEYS'] || '~/.ssh/amazon.pem'
-
 # Shared Credentials を利用する。 see: http://muramasa64.fprog.org/diary/?date=20150217
-ec2 = Aws::EC2::Client.new(region: region)
+ec2 = Aws::EC2::Client.new(region: fetch(:aws_region))
 
 # タグと起動中の EC2 で対象を絞り込む。
 ec2_filtered = ec2.describe_instances(
     filters:[
-        {name: "tag:app", values: ['sample_app_rails_4']},
-        {name: "tag:env", values: ['production']},
-        {name: "tag:role", values: ['rails']},
+        {name: "tag:app", values: [fetch(:application)]},
+        {name: "tag:env", values: [fetch(:rails_env)]},
+        {name: "tag:role", values: [fetch(:tag_role)]},
         {name: 'instance-state-name', values: ['running']}
     ])
 
@@ -25,10 +22,10 @@ server *instances,
     user: 'ec2-user',
     ssh_options: {
         forward_agent: true,
-        auth_methods: ["publickey"],
+        auth_methods: ['publickey'],
         # if you want to debug capistrano set verbose to debug
         # verbose: :debug,
-        keys: ssh_keys
+        keys: fetch(:ssh_keys)
     }
 
 # server-based syntax
