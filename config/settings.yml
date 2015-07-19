@@ -13,7 +13,3 @@ databases:
     database: sample_app_rails_4_test
   production:
     database: sample_app_rails_4_production
-
-unicorn:
-  worker_process: 2
-  timeout: 60
