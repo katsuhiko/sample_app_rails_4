@@ -16,7 +16,7 @@ app_path = File.dirname(File.dirname(Dir.pwd))
 # Use at least one worker per core if you're on a dedicated server,
 # more will usually help for _short_ waits on databases/caches.
 #worker_processes 4
-worker_processes ENV['WORKER_PROCESSES'] || 2
+worker_processes 2
 
 # Since Unicorn is never exposed to outside clients, it does not need to
 # run on the standard HTTP port (80), there is no reason to start Unicorn
@@ -49,8 +49,8 @@ pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 # so prevent them from going to /dev/null when daemonized here:
 #stderr_path "/path/to/app/shared/log/unicorn.stderr.log"
 #stdout_path "/path/to/app/shared/log/unicorn.stdout.log"
-stderr_path "log/unicorn.stderr.log"
-stdout_path "log/unicorn.stdout.log"
+stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
+stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 
 # combine Ruby 2.0.0dev or REE with "preload_app true" for memory savings
 # http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
