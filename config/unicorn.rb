@@ -17,7 +17,7 @@ app_shared = "#{app_root}/shared"
 # Use at least one worker per core if you're on a dedicated server,
 # more will usually help for _short_ waits on databases/caches.
 #worker_processes 4
-worker_processes Settings.unicorn.worker_process
+worker_processes ::Settings.unicorn.worker_process
 
 # Since Unicorn is never exposed to outside clients, it does not need to
 # run on the standard HTTP port (80), there is no reason to start Unicorn
@@ -39,7 +39,7 @@ listen "#{app_shared}/tmp/sockets/unicorn.sock"
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 #timeout 30
-timeout Settings.unicorn.timeout
+timeout ::Settings.unicorn.timeout
 
 # feel free to point this anywhere accessible on the filesystem
 #pid "/path/to/app/shared/pids/unicorn.pid"
