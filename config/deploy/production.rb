@@ -20,6 +20,7 @@ instances = ec2_filtered.reservations.map(&:instances).flatten.map(&:public_ip_a
 
 role :app, *instances
 role :web, *instances
+role :db, [instances.first]
 server *instances,
     user: 'ec2-user',
     ssh_options: {
