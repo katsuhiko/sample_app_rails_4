@@ -1,8 +1,7 @@
 # template: http://unicorn.bogomips.org/examples/unicorn.conf.rb
+# see: https://github.com/tablexi/capistrano3-unicorn/blob/master/examples/unicorn.rb
 
-app_root = File.dirname(File.dirname(Dir.pwd))
-app_path = "#{app_root}/current"
-app_shared = "#{app_root}/shared"
+app_path = File.dirname(File.dirname(Dir.pwd))
 
 # Sample verbose configuration file for Unicorn (not Rack)
 #
@@ -29,13 +28,13 @@ worker_processes 4
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
 #working_directory "/path/to/app/current" # available in 0.94.0+
-working_directory app_path
+working_directory "#{app_path}/current"
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
 #listen "/path/to/.unicorn.sock", :backlog => 64
 #listen 8080, :tcp_nopush => true
-listen "#{app_shared}/tmp/sockets/unicorn.sock"
+listen "#{app_path}/shared/tmp/sockets/unicorn.sock", :backlog => 64
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 #timeout 30
@@ -43,15 +42,15 @@ timeout 60
 
 # feel free to point this anywhere accessible on the filesystem
 #pid "/path/to/app/shared/pids/unicorn.pid"
-pid "#{app_shared}/tmp/pids/unicorn.pid"
+pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
 #stderr_path "/path/to/app/shared/log/unicorn.stderr.log"
 #stdout_path "/path/to/app/shared/log/unicorn.stdout.log"
-stderr_path "#{app_path}/log/unicorn.stderr.log"
-stdout_path "#{app_path}/log/unicorn.stdout.log"
+stderr_path "log/unicorn.stderr.log"
+stdout_path "log/unicorn.stdout.log"
 
 # combine Ruby 2.0.0dev or REE with "preload_app true" for memory savings
 # http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
@@ -72,7 +71,7 @@ run_once = true
 
 # Gemfile を変更したときにも読み込まれるようにする。 see: http://qiita.com/tachiba/items/7eef03cce6a917a957dc
 before_exec do |server|
-  ENV['BUNDLE_GEMFILE'] = File.expand_path('Gemfile', ENV['RAILS_ROOT'])
+  ENV['BUNDLE_GEMFILE'] = "#{app_path}/current/Gemfile"
 end
 
 before_fork do |server, worker|
