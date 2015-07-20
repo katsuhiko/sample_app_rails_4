@@ -6,7 +6,8 @@ ec2 = Aws::EC2::Client.new(region: fetch(:aws_region))
 # タグと起動中の EC2 で対象を絞り込む。
 ec2_filtered = ec2.describe_instances(
     filters:[
-        {name: "tag:env", values: ["#{fetch(:rails_env)}-#{fetch(:aws_env_role)}"]},
+        {name: "tag:env", values: [fetch(:rails_env)]},
+        {name: "tag:role", values: [fetch(:aws_env_role)]},
         {name: 'instance-state-name', values: ['running']}
     ])
 
