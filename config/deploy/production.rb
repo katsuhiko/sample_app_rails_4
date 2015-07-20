@@ -7,7 +7,7 @@ ec2 = Aws::EC2::Client.new(region: fetch(:aws_region))
 ec2_filtered = ec2.describe_instances(
     filters:[
         {name: "tag:env", values: [fetch(:rails_env)]},
-        {name: "tag:role", values: [fetch(:aws_env_role)]},
+        {name: "tag:role", values: [fetch(:aws_tag_role)]},
         {name: 'instance-state-name', values: ['running']}
     ])
 

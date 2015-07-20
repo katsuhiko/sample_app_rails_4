@@ -6,7 +6,7 @@ set :repo_url, 'https://github.com/katsuhiko/sample_app_rails_4.git'
 
 # AWS / EC2 サーバーの設定
 set :aws_region, ENV['AWS_REGION'] || 'ap-northeast-1'
-set :aws_env_role, ENV['AWS_TAG_ROLE'] || 'rails'
+set :aws_tag_role, ENV['AWS_TAG_ROLE'] || 'rails'
 set :deploy_user, ENV['DEPLOY_USER'] || 'ec2-user'
 set :deploy_ssh_keys, ENV['DEPLOY_SSH_KEYS'] || '~/.ssh/amazon.pem'
 
