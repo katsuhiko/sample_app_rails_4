@@ -24,3 +24,11 @@
 
 - name: Set ntp service to start on boot
   service: name=ntp enabled=true
+
+- name: Add repository for ansible
+  apt_repository: repo='ppa:ansible/ansible' state=present
+
+- name: Install ansible
+  apt: name={{ item }} state=latest
+  with_items:
+    - ansible

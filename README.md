@@ -20,6 +20,16 @@ Building the virtual machine:
     host $ cd template-rails-ansible
     host $ vagrant up
 
+## Create files
+
+~/.ssh/amazon.pem
+
+~/.aws/credentials
+
+    [default]
+    aws_access_key_id = XXXXXXXX
+    aws_secret_access_key = XXXXXXXX
+
 ## How to run RSpec
 
     guest $ bundle install
@@ -31,8 +41,3 @@ Building the virtual machine:
     guest $ bundle exec spring rspec
     
     quest $ bundle exec guard -p -l 10
-
-## How To New Rails Plugin
-
-* https://gist.github.com/tomoyukiinoue/7968556
-* http://www.andrewhavens.com/posts/27/how-to-create-a-new-rails-engine-which-uses-rspec-and-factorygirl-for-testing/
