@@ -8,7 +8,7 @@ ec2_filtered = ec2.describe_instances(
     filters:[
         {name: "tag:app", values: [fetch(:application)]},
         {name: "tag:env", values: [fetch(:rails_env)]},
-        {name: "tag:role", values: [fetch(:tag_role)]},
+        {name: "tag:role", values: [fetch(:aws_tag_role)]},
         {name: 'instance-state-name', values: ['running']}
     ])
 
@@ -19,13 +19,13 @@ role :app, *instances
 role :web, *instances
 role :db, [instances.first]
 server *instances,
-    user: 'ec2-user',
+    user: fetch(:deploy_user),
     ssh_options: {
         forward_agent: true,
         auth_methods: ['publickey'],
         # if you want to debug capistrano set verbose to debug
         # verbose: :debug,
-        keys: fetch(:ssh_keys)
+        keys: fetch(:deploy_ssh_keys)
     }
 
 # server-based syntax
