@@ -5,14 +5,14 @@ if ENV['CIRCLE_ARTIFACTS']
 end
 
 require 'simplecov-rcov'
-SimpleCov.formatters = [
-    SimpleCov::Formatter::HTMLFormatter,
-    SimpleCov::Formatter::RcovFormatter
-]
-SimpleCov.start 'rails'
-
 require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
+SimpleCov.start 'rails' do
+  formatter SimpleCov::Formatter::MultiFormatter[
+          SimpleCov::Formatter::HTMLFormatter,
+          SimpleCov::Formatter::RcovFormatter,
+          CodeClimate::TestReporter::Formatter
+      ]
+end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
