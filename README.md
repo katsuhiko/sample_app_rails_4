@@ -1,4 +1,4 @@
-[![Circle CI](https://circleci.com/gh/katsuhiko/sample_app_rails_4.svg?style=svg)](https://circleci.com/gh/katsuhiko/sample_app_rails_4)
+[![Circle CI](https://circleci.com/gh/katsuhiko/sample_app_rails_4.svg?style=shield)](https://circleci.com/gh/katsuhiko/sample_app_rails_4)
 
 # Sample app Rails 4
 
