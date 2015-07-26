@@ -78,4 +78,7 @@ group :test do
 
   # circle ci で利用する。
   gem 'rspec_junit_formatter'
+
+  # coveralls.io を利用する。
+  gem 'coveralls', require: false
 end

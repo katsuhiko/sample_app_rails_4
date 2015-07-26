@@ -1,4 +1,5 @@
 [![Circle CI](https://circleci.com/gh/katsuhiko/sample_app_rails_4.svg?style=shield)](https://circleci.com/gh/katsuhiko/sample_app_rails_4)
+[![Code Climate](https://codeclimate.com/github/katsuhiko/sample_app_rails_4/badges/gpa.svg)](https://codeclimate.com/github/katsuhiko/sample_app_rails_4)
 
 # Sample app Rails 4
 
