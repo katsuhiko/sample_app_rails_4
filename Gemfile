@@ -79,6 +79,6 @@ group :test do
   # circle ci で利用する。
   gem 'rspec_junit_formatter'
 
-  # coveralls.io を利用する。
-  gem 'coveralls', require: false
+  # codeclimate を利用する。
+  gem 'codeclimate-test-reporter', require: false
 end
