@@ -75,4 +75,7 @@ group :test do
 
   # feature spec で利用する。
   gem 'capybara'
+
+  # circle ci で利用する。
+  gem install rspec_junit_formatter
 end
