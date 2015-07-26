@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/katsuhiko/sample_app_rails_4.svg?style=svg)](https://circleci.com/gh/katsuhiko/sample_app_rails_4)
+
 # Sample app Rails 4
 
 http://railstutorial.jp/book/ruby-on-rails-tutorial?version=4.0#cha-static-pages
