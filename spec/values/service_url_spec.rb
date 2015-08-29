@@ -1,24 +1,25 @@
 require 'rails_helper'
 
 describe ServiceUrl do
-  context 'URLから情報を生成する場合' do
+  describe '.from_url' do
     let(:service) { 'http://api.example.com/' }
     let(:version) { 'v2' }
     let(:path) { '/xxx' }
     let(:url) { "#{service}#{version}#{path}" }
-
     let(:service_url) { ServiceUrl.from_url(url) }
 
-    it 'サービス名を取得できること' do
-      expect(service_url.service).to eq service
+    describe '#service' do
+      subject { service_url.service }
+      it { is_expected.to eq service }
     end
 
-    it 'バージョンを取得できること' do
-      expect(service_url.version).to eq version
+    describe '#version' do
+      subject { service_url.version }
+      it { is_expected.to eq version }
     end
   end
 
-  context 'Comparable' do
+  describe 'Comparable' do
     let(:obj) { ServiceUrl.from_url('http://api.com/v1/x') }
     let(:other) { ServiceUrl.from_url('http://api.com/v1/x') }
 
