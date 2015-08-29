@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.4'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -31,8 +31,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'unicorn'
 gem 'unicorn-worker-killer'
 
-# アプリケーションの設定情報を統括して管理させる。(see. https://github.com/railsconfig/rails_config)
-gem "rails_config"
+# アプリケーションの設定情報を統括して管理させる。(see. https://github.com/railsconfig/config)
+gem "config"
 
 # AWS に関してはいろいろ使う予定
 gem 'aws-sdk', '~> 2'
