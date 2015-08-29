@@ -8,6 +8,10 @@ describe ServiceUrl do
     let(:url) { "#{service}#{version}#{path}" }
     let(:service_url) { ServiceUrl.from_url(url) }
 
+    subject { service_url }
+    it { is_expected.to respond_to :service }
+    it { is_expected.to respond_to :version }
+
     describe '#service' do
       subject { service_url.service }
       it { is_expected.to eq service }

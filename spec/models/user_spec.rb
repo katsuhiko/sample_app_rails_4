@@ -5,7 +5,7 @@ describe User, type: :model do
     let(:user) { build(:user) }
     subject { user }
 
-    it { is_expected.to respond_to(:name) }
-    it { is_expected.to respond_to(:email) }
+    it { is_expected.to respond_to :name }
+    it { is_expected.to respond_to :email }
   end
 end
