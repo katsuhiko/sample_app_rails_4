@@ -81,28 +81,4 @@ namespace :deploy do
   #     # end
   #   end
   # end
-
-  desc 'Clear tmp cache'
-  task :clear_tmp_cache do
-    on roles(:app), in: :groups, limit: 10, wait: 5 do
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rake, 'tmp:cache:clear'
-        end
-      end
-    end
-  end
-
-  after :restart, :clear_tmp_cache
-
-  desc 'Save current revision'
-  task :save_current_revision do
-    on roles(:app), in: :groups, limit: 10, wait: 5 do
-      within release_path do
-        execute :echo, "'revision: #{fetch :current_revision}' > config/settings.local.yml"
-      end
-    end
-  end
-
-  before :updated, :save_current_revision
 end

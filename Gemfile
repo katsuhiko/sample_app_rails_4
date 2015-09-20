@@ -67,6 +67,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano3-unicorn'
+  gem 'capistrano3-revision', :git => 'https://github.com/katsuhiko/capistrano3-revision.git'
 end
 
 group :test do
